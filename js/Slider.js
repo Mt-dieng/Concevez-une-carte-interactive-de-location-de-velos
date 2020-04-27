@@ -37,7 +37,7 @@ class Slider{
 
       // methode pour aller a droite
        
-      //event listeners 
+      //les évenements  
        
         /*//keyboard
         document.onkeydown = ($event) => {
