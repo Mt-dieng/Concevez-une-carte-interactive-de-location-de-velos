@@ -2,64 +2,72 @@
 //Déclaration de class
 class Slider{
     constructor(slider){
-       this.slider=slider;
-       //Séléction des items
-       this.slides=this.slider.querySelector(".slider-items").children; 
-       this.totalSlides=this.slides.length;
+      this.currentIndex = 0;
+      this.slider = slider;
 
-       // obtenir la largeur du sliderconteneur 
-       this.containerWidth=this.slider.offsetWidth;
+      //Séléction des items
+      this.slides = this.slider.querySelectorAll(".item"); 
+      
+      // Totlal des slides
+      this.totalSlides = this.slides.length;
+      this.lastIndex = this.slides.length - 1;
+      
+      //séléction fléche gauche et droite
+      this.Prev = this.slider.querySelector("#gauche")
 
-       //séléction fléche gauche et droite
-        this.Gauche=this.slider.querySelector("#gauche")
-        this.Droite=this.slider.querySelector("#droite")
+      this.Next = this.slider.querySelector("#droite")
+      this.Play = this.slider.querySelector("#play")
+      console.log(this.Play);
+      this.Pause = this.slider.querySelector("#pause")
+        
+      
+      //initialisation de la première slide
+      
+      //this.slideToIndex(this.currentIndex, false);
 
-       //Navigation des slides
+      //initialisation des événements sur les boutons
 
-       let nav=this;
-       // methode pour aller a gauche
-       this.Gauche.onclick=function (){
-           console.log("this.Gauche.onclick");
-          nav.gauche()    
-       }
-        // methode pour aller a droite
-       this.Droite.onclick=function (){
-        console.log("this.Droite.onclick");
-           nav.droite()
-          }
-       this.index=0;
-       this.jumWidth=0;
+      // methode pour play
+       
+      // methode pour pause
+        
      
-   }
-       
-   //gauche
-   gauche(){
-       console.log("gauche");
-       if(this.index==0){
-           this.index=this.totalSlides-1;
-           this.jumWidth=this.containerWidth*(this.containerWidth-1);
-       }
-       else{
+        // methode pour aller a gauche
+        
 
-           this.index--;
-           this.jumWidth=this.jumWidth-this.containerWidth;
-       }
+      // methode pour aller a droite
        
-       this.slider.querySelector(".slider-items").style.marginLeft=-this.jumpWidth+"px"
+      //event listeners 
+       
+        /*//keyboard
+        document.onkeydown = ($event) => {
+            switch ($event.keyCode) {
+                case 39: //rigth arrow- code
+                    this.moveToNext();
+                    break;
+                case 37: //left arrow - code
+                    this.moveToPrev();
+                    break;
+            }
+        }   */
+        this.Pause.addEventListener('click', () => {
+            this.stop();
+        });
+        this.Play.addEventListener('click', () => {
+            this.start();
+        });
+
     }
+           
    
-    //droite
-    droite(){
-      console.log("droite");
-        if(this.index==this.totalSlides-1){
-            this.index=0;
-            this.jumWidth=0;
-        }
-        else{
-            this.index++;
-            this.jumWidth=this.jumWidth+this.containerWidth;
-       }
-       
-       this.slider.querySelector(".slider-items").style.marginLeft=-this.jumpWidth+"px"
-   }
+      //play
+
+      //pause
+
+      //gauche
+    
+
+     
+      //droite}
+  
 }
