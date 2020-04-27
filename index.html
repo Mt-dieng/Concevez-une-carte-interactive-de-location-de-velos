@@ -4,7 +4,7 @@
     <!-- =================================== -->
     <head>
         <title>VELOCITE BESANCON</title>
-        <link rel="shortcut icon" href="" />
+        <link rel="shortcut icon" href="images/icône.jpg" />
         <meta name="description" content="Pour simplifier vos déplacements sur Besançon vélocité vous propose des vélos en libre-service....">
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -27,7 +27,7 @@
 
         <div class="logo"><img src="images/logo.png"></div>
             <ul>
-                <li><a href="#">Présentation de l'application</a></li>
+                <li><a href="#presapp">Présentation de l'application</a></li>
                 <li><a href="#">Réservation ?</a></li>  
             </ul>
 
@@ -35,14 +35,14 @@
 <!-- ===================== Main/ Carousel ==================== -->
    <main>
 
-        <h1>Bienvenue sur vélocité Besançon</h1>
+        <h1 id="presapp">Présentation de l'application</h1>
         <!-- =========== Carousel ============ --> 
         <section class="slider-container slider1">
 
             <ul class="slider-items">            
                 <li class="item">
                     <img src="images/slide1.jpg" alt="slider1">
-                    <div class="caption">slider 1</div>
+                    <div class="caption">slider 1,Bienvenue sur vélocité Besançon</div>
                 </li>
                  <li class="item">
                     <img src="images/slide2.jpg" alt="slider2">
@@ -51,6 +51,10 @@
                 <li class="item">
                     <img src="images/slide3.jpg" alt="slider2">
                     <div class="caption">slider 3</div>
+                </li>
+                <li class="item">
+                    <img src="images/slide3.jpg" alt="slider2">
+                    <div class="caption">slider 4</div>
                 </li>
             </ul>
         <!-- ======== Fleches de direction ======== --> 
@@ -64,14 +68,23 @@
                     <i class="fas fa-angle-right fa_custom fa-2x"></i>
                 </span>
             </div>
+            <div class="playpause">
+                 <span id="play">
+                    <i class="fas fa-play fa-2x"></i>
+                 </span>
+                 <span id="pause">
+                    <i class="fas fa-pause fa-2x"></i>   
+                 </span>
+            </div>
         <!-- ======== Fleches de direction ======== --> 
         </section>
     </main>
     <canvas></canvas>
+
     
 <!-- =============== intégration de la feuille JS =============== -->
-<script src="js/Slider.js"></script>
 <script src="js/Canvas.js"></script>
+<script src="js/Slider.js"></script>
 <script src="js/Map.js"></script>
 <script src="js/main.js"></script>
 
