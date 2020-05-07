@@ -32,14 +32,12 @@ class Slider{
 			let indexPrece=null;
 			console.log(indexPrece);
 			if (Self.index == Self.totalItems){
-				 indexPrece = Self.index - 1;
-				 
-				 
+				 indexPrece = Self.totalItems-1;	 
 			} else{
-				 indexPrece = Self.totalItems;
+				indexPrece = Self.index - 1;
 			}
-			Self.items[Self.index].classList.add('slide-active');
-			Self.items[indexPrece].classList.remove('slide-active');
+			
+			Self.items[Self.index].classList.remove('slide-active');
 			Self.index = indexPrece;
 		})
         // methode pour aller au slider suivant
