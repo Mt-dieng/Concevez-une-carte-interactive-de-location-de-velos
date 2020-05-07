@@ -1,17 +1,29 @@
 /*================================== Slider =====================================*/
+document.addEventListener("DOMContentLoaded", function(event) 
+{ 
 
 //Récupération du conteneur
-const sliderOne=document.querySelector(".slider1");
+const sliderElement=document.querySelector(".slider");
+// console.log(sliderElement);
 
-//Récupération de notre liste d'items
-const slides=document.querySelectorAll(".item")
-const totalSlides = slides.length;
-console.log(totalSlides);
 
-//Instanciation de l'objet
-let slider1 = new Slider(sliderOne)
+// création de notre objet
+let slider = new Slider (sliderElement);
+// console.log(slider)
+
+
+
+
+// let items=document.querySelectorAll(".item");
+// console.log(items)
+// //Récupération de notre liste d'items
+
+
+
+
+
  
 
-
+});
 /*================================== Carte =====================================*/
 /*================================== Canava =====================================*/
