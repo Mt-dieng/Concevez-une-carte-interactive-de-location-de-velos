@@ -14,16 +14,25 @@ html{
 body{
     font-family: 'roboto', serif;
     margin: 0;
+    background-image: #fff;
 }
 
 header{
-    position: relative;
     background: #1274a4de;
-    padding: 0 100px;
     width: 100%;
     height: 80px;
     box-sizing: border-box;
     box-shadow: 0 5px #221;
+}
+.inner{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    max-width: 1400px;
+    position: relative;
+    margin: 0 auto;
 }
 
 .logo{
@@ -39,11 +48,9 @@ header{
 }
 
 ul{
-    position: relative;
+    position: absolute;
     display: flex;
-    padding: 0;
-    margin: 0;
-    float: right;
+    right: 0;
 }
 
 ul li{
@@ -87,32 +94,36 @@ main{
     border-radius: 4px;
     background: #fff;
     box-shadow: 2px 4px 7px #39363654;
-
+    width: 80%;
+    margin: auto;
 }
 
-.slider-container .slider-items{
+.slider-container .slides-item{
     display: flex;
     width: 100%;
-    height: 600px;
+    height: 100%;
 }
 
-.slider-container .slider-items .item{
+.slider-container .slides-item .item{
     width: 100%;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     position: absolute;
+    opacity: 0;
 }
-
-.slider-container .slider-items .item img{
+.slider-container .slides-item .slide-active{
+    opacity: 1;
+}
+.slider-container .slides-item .item img{
     width: 100%;
     height: 100%;
 }
 
-.slider-container .slider-items .item .caption{
+.slider-container .slides-item .item .caption{
     position: absolute;
-    bottom: 0;
+    bottom: 43px;
     margin:  0 auto;
     text-align: center;
     width: 100%;
@@ -120,8 +131,9 @@ main{
     font-weight: bold;
     padding: 25px 15px;
     font-size: 22px;
-    background: #00000082;
+    background: #0000004d;
 }
+
 
 #gauche, #droite{
     width: 50px;
@@ -158,21 +170,22 @@ main{
 
 
 #gauche:hover, #droite:hover{
-    background: #000000a0;
+    background: #f7f2f2a1;
     cursor: pointer;
-    color: #fff;
+    color: #3186b0;
 }
 
 .playpause{
     position: absolute;
     bottom: 5px;
     left: 50%;
-    padding: 5px 10px; 
+    padding: 5px 10px;
+    background: #fff; 
 }
 
 #play:hover, #pause:hover{
     cursor: pointer;
-    color: #c01a1a;
+    color: #3186b0;
 }
 
 
