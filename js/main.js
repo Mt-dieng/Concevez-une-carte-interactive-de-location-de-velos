@@ -9,7 +9,7 @@ const sliderElement=document.querySelector(".slider");
 
 // création de notre objet
 let slider = new Slider (sliderElement);
-// console.log(slider)
+// console.log(slider);
 
 
 
