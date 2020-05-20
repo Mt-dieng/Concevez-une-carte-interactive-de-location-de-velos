@@ -2,121 +2,120 @@
 //Déclaration de class (Slider)
 class Slider{
 
-	// définit notre constructor
+	/* ***définit notre constructor*** */
     constructor(sliderElement){
-		var Self=this;
-    	this.sliderElement=sliderElement; //attributs
+
+        this.sliderElement=sliderElement; //attributs
 		console.log(this.sliderElement);
 		
 		// Séléction des items	
 		this.items=document.querySelectorAll(".item"); //Nodelist  
-		// console.log(this.items);
-		this.totalItems =this.items.length;
-		
-	   
-		//index du slide en cours
-		this.index = 0;// 0 <=> this.items[0]
-
-	    //séléction fléche gauche et droite
-		this.Prev = document.querySelector("#gauche")		
-		this.Next = document.querySelector("#droite")
-
+        console.log(this.items);
+        // console.log(this.items);
+        this.totalItems =this.items.length;
+        
+        //index du slide en cours <=> notre compteur
+        this.index = 0;
+         
+        //séléction fléche gauche et droite
+        this.prev_elt = document.querySelector("#gauche")
+        this.next_elt = document.querySelector("#droite")
+        
 		//Controle de nos slides
-		this.Play = document.querySelector("#play")
-		this.Pause = document.querySelector("#pause")
-		
-
-		// // déclanchement autoplay
-		// this.playInterval = window.setInterval(function(){
-		// 	this.goToNext.bind(this);
-		// }, 1000)//(1000ms <=> 1s)
-
-		//Gestion des évenements 
-       
-        // Eventclick pour aller au slider précedent
-		this.Prev.addEventListener('click', function(){
-			console.log('clickprec');
-			goToPrev();
-		})
+        this.play_elt = document.querySelector("#play")
+        this.pause_elt = document.querySelector("#pause")
+         
+        //Gestion des évenements
+        this.playInterval = null;
 
         // Eventclick pour aller au slider suivant
-		this.Next.addEventListener('click', function(){
-			console.log('clicksuiv');
-			goToNext();	
-		})
+        this.next_elt.addEventListener('click', ()=>{
+            console.log('suivant');
+            this.goToNext();      
+        });
 
-		//Autoplay avec 2 param(fct & time)
-		// window.setInterval(function(){
-		// 	goToNext();
-		// }, 1000)//(1000ms <=> 1s)
+        // Eventclick pour aller au slider precédent
+        this.prev_elt.addEventListener('click', ()=>{
+            console.log('precédent');
+            this.goToPrev();
+        });
 
-		// Eventclick pour play
-		this.Play.addEventListener('click', function(){
+        // Eventclick pour play
+		this.play_elt.addEventListener('click', ()=>{
 			console.log('Play');
-			clearInterval(Self.playInterval);
-			createPlayInterval();
-		})
+            this.clearPlayInterval();
+            this.createPlayInterval();
+        });
         
         // Eventclick pour pause
-        this.Pause.addEventListener('click', function(){
+        this.pause_elt.addEventListener('click', ()=>{
 			console.log('Pause');
-			clearInterval(Self.playInterval);	
-		})
+			this.clearPlayInterval();	
+        });
+        
+        // Event - clavier
+        window.addEventListener('keydown', (event) =>{
+                switch(event.keyCode){
+                    case 37: // arrow-left <=> precedent
+                        this.goToPrev();
+                        break;
+                    case 39: // arrow-right <=> suivant
+                        this.goToNext();
+                        break;
+                }
+            });
+    }
+    /* ***fin du constructor*** */
 
-		// //Event clavier
-		// window.addEventListener('keypress', function(event) {
-           
-		// 	switch(event){
-		// 		case 37: // arrow-left
-		// 			console.log('goToPrev() ');
-		// 			break;
-		// 		case 39: // arrow-right
-		// 			goToNext();
-		// 			break;
-   
-		// 	}
-		// })
+        // Fonctions..
 
-	}
+        goToNext () {
+            let indexSuiv=null;
+            if (this.index < this.totalItems-1){
+                indexSuiv = this.index + 1;
+            } else{
+                indexSuiv = 0;
+            }
+            this.items[this.index].classList.remove('slide-active');
+            this.items[indexSuiv].classList.add('slide-active');
+            this.index = indexSuiv;
+        }
 
-		// Gestion de nos Methodes
-		goToNext(){
-			let indexSuiv=null;
-			if (Self.index < Self.totalItems-1){
-				indexSuiv = Self.index + 1;
-			} else{
-				indexSuiv = 0;
-			}
-			Self.items[Self.index].classList.remove('slide-active');
-			Self.items[indexSuiv].classList.add('slide-active');
-			Self.index = indexSuiv;
-		}
+        goToPrev ()  {
+            let indexPrece=null;
+            if (this.index <= 0){
+                    indexPrece = this.totalItems-1;	 
+            } else{
+                indexPrece = this.index-1; 
+            } 
+            
+            this.items[this.index].classList.remove('slide-active');
+            this.items[indexPrece].classList.add('slide-active');
+            this.index = indexPrece;
+        }
 
-		goToPrev(){
-			let indexPrece=null;
-				console.log(indexPrece);
-			if (Self.index <= 0){
-					indexPrece = Self.totalItems-1;	 
-			} else{
-				indexPrece = Self.index-1; 
-			} 
-			
-			Self.items[Self.index].classList.remove('slide-active');
-			Self.items[indexPrece].classList.add('slide-active');
-			Self.index = indexPrece;
-		}
+        //Play
+        createPlayInterval () {
+            this.playInterval = window.setInterval( ()=>{
+                console.log('Lecture');
+                let indexSuiv=null;
+                if (this.index < this.totalItems-1){
+                    indexSuiv = this.index + 1;
+                } else{
+                    indexSuiv = 0;
+                }
+                this.items[this.index].classList.remove('slide-active');
+                this.items[indexSuiv].classList.add('slide-active');
+                this.index = indexSuiv;
+            }, 1000)//(1000ms <=> 1s)
+            
+        }
 
-		createPlayInterval(){
-			let playInterval = null;
-			this.playInterval = window.setInterval(function(){
-				Self.goToNext();
-			}, 1000)//(1000ms <=> 1s)
-			
-		}
-		clearInterval(){
-			
-		}
+        //Pause
+        clearPlayInterval () {
+        window.clearInterval(this.playInterval);
+        console.log('STOP');
+        
+        }
 
-      	
-	  
 }

@@ -11,18 +11,9 @@ const sliderElement=document.querySelector(".slider");
 let slider = new Slider (sliderElement);
 // console.log(slider);
 
-
-
-
 // let items=document.querySelectorAll(".item");
 // console.log(items)
 // //Récupération de notre liste d'items
-
-
-
-
-
- 
 
 });
 /*================================== Carte =====================================*/
