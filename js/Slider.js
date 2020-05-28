@@ -8,10 +8,8 @@ class Slider{
         this.sliderElement=sliderElement; //attributs
 		console.log(this.sliderElement);
 		
-		// Séléction des items	
-		this.items=document.querySelectorAll(".item"); //Nodelist  
-        console.log(this.items);
-        // console.log(this.items);
+		// Séléction des items - Nodelist	
+		this.items=document.querySelectorAll(".item");   
         this.totalItems =this.items.length;
         
         //index du slide en cours <=> notre compteur
@@ -55,20 +53,25 @@ class Slider{
         
         // Event - clavier
         window.addEventListener('keydown', (event) =>{
-                switch(event.keyCode){
-                    case 37: // arrow-left <=> precedent
-                        this.goToPrev();
-                        break;
-                    case 39: // arrow-right <=> suivant
-                        this.goToNext();
-                        break;
-                }
-            });
+            switch(event.keyCode){
+                case 37: // arrow-left <=> precedent
+                    this.goToPrev();
+                    break;
+                case 39: // arrow-right <=> suivant
+                    this.goToNext();
+                    break;
+            }
+        });
+
+        // Lancement autoplay
+        this.createPlayInterval();
+        
     }
     /* ***fin du constructor*** */
 
         // Fonctions..
 
+        //Pour aller au slide suivant
         goToNext () {
             let indexSuiv=null;
             if (this.index < this.totalItems-1){
@@ -80,7 +83,7 @@ class Slider{
             this.items[indexSuiv].classList.add('slide-active');
             this.index = indexSuiv;
         }
-
+        //Pour revenir en arriére
         goToPrev ()  {
             let indexPrece=null;
             if (this.index <= 0){
