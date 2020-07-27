@@ -95,7 +95,7 @@ main{
     box-shadow: 2px 4px 7px #39363654;
     width: 80%;
     margin: auto;
-    display: none;
+    /* display: none; */
 }
 
 .slider-container .slides-item{

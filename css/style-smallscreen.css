@@ -32,10 +32,30 @@
   #presapp {
     display: none;
   }
-
+  
+  .slider-container {
+    border: 2px solid #81848c;
+    height: 360px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 4px;
+    background: #fff;
+    box-shadow: 2px 4px 7px #39363654;
+    width: 100%;
+    margin: auto;
+  
+}
 .container-map {
   display: flex;
   flex-direction: column;
+}
+
+.playpause {
+  position: absolute;
+  bottom: 1px;
+  left: 37%;
+  padding: 5px 10px;
+  background: #fff;
 }
 
 .station-info {
