@@ -3,12 +3,12 @@ document.addEventListener("DOMContentLoaded", function(event)
 
 /*================================== Slider =====================================*/
 
-// //Récupération du conteneur
-// let sliderElement = document.querySelector(".slider");
+//Récupération du conteneur
+let sliderElement = document.querySelector(".slider");
 
-// // création de notre objet
-// let my_slider_1 = new Slider (sliderElement);
-// // console.log(my_slider_1);
+// création de notre objet
+let my_slider_1 = new Slider (sliderElement);
+console.log(my_slider_1);
 
 
 });

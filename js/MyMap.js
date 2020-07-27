@@ -11,7 +11,7 @@ class MyMap{
        
     }
 
-    //methode iniMat   
+    //methode iniMap   
     initMap(){
         this.googleMap = new google.maps.Map(this.mapElement, this.mapOptions);
     }
