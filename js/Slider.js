@@ -6,7 +6,7 @@ class Slider{
     constructor(sliderElement){
 
         this.sliderElement=sliderElement; //attributs
-		console.log(this.sliderElement);
+		// console.log(this.sliderElement);
 		
 		// Séléction des items - Nodelist	
 		this.items=document.querySelectorAll(".item");   
@@ -16,8 +16,8 @@ class Slider{
         this.index = 0;
          
         //séléction fléche gauche et droite
-        this.prev_elt = document.querySelector("#gauche")
-        this.next_elt = document.querySelector("#droite")
+        this.prev_elt = document.querySelector("#left")
+        this.next_elt = document.querySelector("#rigth")
         
 		//Controle de nos slides
         this.play_elt = document.querySelector("#play")
@@ -28,13 +28,13 @@ class Slider{
 
         // Eventclick pour aller au slider suivant
         this.next_elt.addEventListener('click', ()=>{
-            console.log('suivant');
+            console.log('next');
             this.goToNext();      
         });
 
         // Eventclick pour aller au slider precédent
         this.prev_elt.addEventListener('click', ()=>{
-            console.log('precédent');
+            console.log('prev');
             this.goToPrev();
         });
 
@@ -100,7 +100,7 @@ class Slider{
         //Play
         createPlayInterval () {
             this.playInterval = window.setInterval( ()=>{
-                console.log('Lecture');
+                console.log('Play');
                 let indexSuiv=null;
                 if (this.index < this.totalItems-1){
                     indexSuiv = this.index + 1;

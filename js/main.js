@@ -3,41 +3,95 @@ document.addEventListener("DOMContentLoaded", function(event)
 
 /*================================== Slider =====================================*/
 
-//Récupération du conteneur
-// const sliderElement=document.querySelector(".slider");
+// //Récupération du conteneur
+// let sliderElement = document.querySelector(".slider");
 
-// création de notre objet
+// // création de notre objet
 // let my_slider_1 = new Slider (sliderElement);
+// // console.log(my_slider_1);
+
+
+});
 
 /*================================== Carte =====================================*/
 
 // Récupération du conteneur
-const mapElement=document.querySelector('#map');
-console.log(mapElement);
+let mapElement = document.getElementById('map');
 
-// creation de notre objet map
-let my_map_1= new Map (mapElement);
-// console.log(my_map_1);
+//création des option de la carte
+let besançon = {lat : 47.237829, lng : 6.0240539};
+let mapOptions = {	
+	// location Besançon
+	center: besançon,
+	zoom: 14,
+	// // disableDefaultUI: true,
+	// scrollwheel: true,
+	// // mapTypeId: google.maps.MapTypeId.HYBRID
+	// fullscreenControlOptions: {
+	// 	position: google.maps.ControlPosition.RIGHT_TOP
+	// }
+};
+
+// //CALLBACK chargement google map
+function gMapCallBack() {
+
+	// creation de notre objet map
+	let my_map_1 = new MyMap (mapElement, mapOptions);
+
+	//initialisation de la carte
+	my_map_1.initMap();
+	
+	// récupération du tableau des stations
+	let tableauStations = [];
+	// appel AJAX par GET
+	const xhr = new XMLHttpRequest();
+	console.log(this);
+	xhr.open('GET', 'https://api.jcdecaux.com/vls/v1/stations?contract=besancon&apiKey=a9894cabd522f540bdcb21976dbdd92b43a0a85a')
+
+	xhr.responseType = "json";
+	
+	
+	xhr.send();
+	
+	xhr.onload = function(){
+		//Si le statut HTTP n'est pas 200...
+		if (xhr.status != 200){ 
+			//...On affiche le statut et le message correspondant
+			alert("Erreur " + xhr.status + " : " + xhr.statusText);
+		//Si le statut HTTP est 200, on affiche le nombre d'octets téléchargés et la réponse
+		}else{ 
+			
+		// création de nos marker
+		my_map_1.createMarkers(xhr.response);
+		}
+	};
+
+}
+
+//validation formulaire
 
 
-
-//fonction d'initialisation de la map
-// var map;
-// function initMap() {
-//     //creation de la map - les coordonneees - zoom
-//     map = new google.maps.Map(document.getElementById('map'), {
-//       center: {
-//           lat:47.25,
-//           lng: 6.0333
-//         },
-//         zoom: 10
-//     })
-// }
-
-
-
+//bouton reserver
+let boutonReserver_elt = document.getElementById('boutonreserver');
+boutonReserver_elt.addEventListener('click', function(event){
+	event.preventDefault();
+	document.getElementById('canvas').style.display = 'block';
+	document.getElementById('controlCanvas').style.display = 'block';
+	
+	
+});
 
 /*================================== Canava =====================================*/
-});
+
+//Récupération du conteneur
+let canvasElement = document.getElementById('canvas');
+// console.log(canvasElement);
+// création de notre objet
+const my_canvas = new MyCanvas ();
+console.log(my_canvas);
+
+
+
+
 
 
