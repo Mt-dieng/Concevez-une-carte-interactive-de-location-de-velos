@@ -1,109 +1,196 @@
 <!DOCTYPE html>
 <html lang="fr">
-<!-- ================= Head ================= -->
-    <!-- =================================== -->
+
+
+<!-- ==================== Head ===================== -->
+    <!-- ======================================= -->
     <head>
         <title>VELOCITE BESANCON</title>
+        <!-- ===== intégration favicons ===== -->
         <link rel="shortcut icon" href="images/icône.jpg" />
+        <!-- ===== favicons ===== -->
+        <meta name="robots" content="follow">
         <meta name="description" content="Pour simplifier vos déplacements sur Besançon vélocité vous propose des vélos en libre-service....">
         <meta charset="utf-8">
         <meta name="author" content="DIENG Malamine"/>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <link href="https://fonts.googleapis.com/css?family=Roboto:400,400i,700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css">
         <!-- ===== intégration fontawesome ===== -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css?family=Handlee&display=swap" rel="stylesheet"> 
-        <!-- ===== intégration feuille style ===== -->
+        
+        <!-- ===== intégration feuilles style ===== -->
         <link rel="stylesheet" type="text/css" href="css/style.css">
+        <link rel="stylesheet"  type="text/css" href="css/style-smallscreen.css">
+        
 
     </head>
-<!-- ================= fin du head ================= -->
+<!-- ================ fin du head ================== -->
 
-<!-- ===================== Body ==================== -->
+<!-- ==================== Body ===================== -->
+    <!-- ==================================== -->
+    <body>
+        <!-- ================= header  ================ -->
+        <header>
 
-<body>
-    <!-- ================= header  ================ -->
-    <header>
+            <div class="inner">
+                <div class="logo"><img src="images/logo.png"></div>
+                <ul>
+                    <li><a href="#presapp">Présentation de l'application</a></li>
+                    <li><a href="#">Réservez ?</a></li>  
+                </ul>
+            </div>
 
-        <div class="inner">
-            <div class="logo"><img src="images/logo.png"></div>
-            <ul>
-                <li><a href="#presapp">Présentation de l'application</a></li>
-                <li><a href="#">Réservez ?</a></li>  
-            </ul>
+        </header>
+        <!-- =============== Fin header  ============== -->
+        
+        <!-- =================== Main  ================== -->
+        <main>
+            <h1 id="presapp">Présentation de l'application</h1>
+
+            <!-- =========== Carousel ============ --> 
+            <section class="slider-container slider">
+                <!-- ====== Liste des slides ======= -->
+                <ul class="slides-item">            
+                    <li class="item slider1 slide-active">
+                        <img src="images/slide1.jpg" alt="slider1">
+                        <div class="caption">Bienvenue sur vélocité Besançon</div>
+                    </li>
+                    <li class="item slider2">
+                        <img src="images/slide2.jpg" alt="slider2">
+                        <div class="caption">Localiser la station la plus proche</div>
+                    </li>
+                    <li class="item slider3">
+                        <img src="images/slide3.jpg" alt="slider3">
+                        <div class="caption">Remplir les champs</div>
+                    </li>
+                    <li class="item slider4">
+                        <img src="images/slide4.jpg" alt="slider4">
+                        <div class="caption">Signer et confirmer</div>
+                    </li>
+                </ul>
+            <!-- ======== Fleches de direction ======== --> 
+                <div id="left">
+                    <span>
+                        <i class="fas fa-angle-left fa_custom fa-2x"></i>
+                    </span>
+                </div>
+                <div id="rigth">
+                    <span>
+                        <i class="fas fa-angle-right fa_custom fa-2x"></i>
+                    </span>
+                </div>
+            <!-- ======== Fleches de direction ======== --> 
+
+                <!-- ======= Boutons contrôle ======= -->
+                <div class="playpause">
+                    <span id="play">
+                    <i class="fas fa-play fa-2x"></i>
+                    </span>
+                    <span id="pause">
+                    <i class="fas fa-pause fa-2x"></i>   
+                    </span>
+                </div>
+            <!-- ======== Fin Carousel ======== --> 
+            </section>
+
+            <!-- =================================== 
+                =======  SECTION MAP  ======== 
+            ==================================== -->
+            <section class="section_map_station">
+                <h1>Localiser votre station la plus proche</h1>
+                <div class="container-map"> 
+                    <div class="carte" id="map"></div>
+                    
+                    <!-- informations sur stations -->
+                    <div class ="station-info">
+                        <h2>Infos Stations </h2>
+                        <form  method="post" action="/" name="myForm"class="staion-text">
+                            <label for="number">Numero: </label>
+                            <p id="station_number"></p>
+                            
+                            <label for="name">Nom: </label>
+                            <p id="station_name"></p>
+                        
+                            <label for="address">Adresse: </label>
+                            <p id="station_address"></p>
+                        
+                            <label for="position">Position: </label>
+                            <p id="station_position"></p>
+                            
+                            <label for="status">Status: </label>
+                            <p id="station_status"></p>
+                            <label for="total">Nombre de vélos disponible: </label>
+                            <p id="station_available_bikes"></p><br>
+                            <label for="lastName">Votre nom</label> <br>			
+                                <div>
+                                    <input type="text" id="lastName" placeholder="Nom" required="">
+                                </div>
+                                <label for="firstName">Votre prénom</label>
+
+                                <div>
+                                    <input type="text" id="firstName" placeholder="Prénom" required="">
+                                </div>							
+                                <input id="boutonreserver" type="submit" value="Réserver">
+                        
+                        </form>
+                    </div>
+                    <!-- Canvas -->
+                    <div class="signature">
+                        <canvas id="canvas" width="300" height="200"></canvas>
+                        <div id="controlCanvas">
+                            <input type="button" id="clearCanvas" value="Effacer">
+                            <input type="button" id="validCanvas" value="Valider">
+                        </div>
+                    </div>
+                    <!-- Infos sur la reservation -->
+                    <div class="infosReservation">
+                       <div id="reservation"></div>
+                       <input id="annulereserv" type="reset" value="Annuler">
+                    <div id="reservationDate"></div>
+                    </div>
+                    
+                </div> 
+            </section>
+        </main>
+
+
+        
+    <!-- =============== intégration des scripts =============== -->
+
+        <!-- <script src="js/Slider.js"></script> -->
+        <script src="js/MyMap.js"></script>
+        <script src="js/MyCanvas.js"></script>
+        <script src="js/MyTimer.js"></script>
+        <script src="js/MyReservation.js"></script>
+        <script src="js/main.js"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWsZ0qujcVy2dkWYAHPRS_aWHnIHZO7SU&callback=gMapCallBack"
+        type="text/javascript"></script>
+    </body>
+<!-- ================== Fin Body =================== -->
+
+<!-- ==================== Footer =================== -->
+    <!-- ======================================= -->
+    <footer> 
+        <div class="footer-countainer">
+            <div class="left-col">
+                <img src="images/logo.png" alt="logo" class="logo-footer">
+                <p class="text">© 2020  Projet3-Openclassroom | by Malamine Dieng |</p>
+                <div class="social-media">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-github-square"></i></a>
+            </div>
+            <div class="rigth-col">
+                
+            </div>
+            
+            </div>
+        
         </div>
+    </footer>
+    <!-- ================ Fin Footer =============== -->
 
-    </header>
-    <!-- ================= Fin header  ================ -->
-    
-    <!-- =================== Main  ================== -->
-    <main>
-
-        <h1 id="presapp">Présentation de l'application</h1>
-
-        <!-- =========== Carousel ============ --> 
-        <section class="slider-container slider">
-            <!-- ====== Liste de slides ======= -->
-            <ul class="slides-item">            
-                <li class="item slider1 slide-active">
-                    <img src="images/slide1.jpg" alt="slider1">
-                    <div class="caption">1 Bienvenue sur vélocité Besançon</div>
-                </li>
-                <li class="item slider2">
-                    <img src="images/slide2.jpg" alt="slider2">
-                    <div class="caption">slider 2</div>
-                </li>
-                <li class="item slider3">
-                    <img src="images/slide3.jpg" alt="slider2">
-                    <div class="caption">slider 3</div>
-                </li>
-                <li class="item slider4">
-                    <img src="images/slide3.jpg" alt="slider2">
-                    <div class="caption">slider 4</div>
-                </li>
-            </ul>
-        <!-- ======== Fleches de direction ======== --> 
-            <div id="left">
-                <span>
-                    <i class="fas fa-angle-left fa_custom fa-2x"></i>
-                </span>
-            </div>
-            <div id="rigth">
-                <span>
-                    <i class="fas fa-angle-right fa_custom fa-2x"></i>
-                </span>
-            </div>
-            <!-- ======= Boutons contrôle ======= -->
-            <div class="playpause">
-                <span id="play">
-                <i class="fas fa-play fa-2x"></i>
-                </span>
-                <span id="pause">
-                <i class="fas fa-pause fa-2x"></i>   
-                </span>
-            </div>
-        <!-- ======== Fin Carousel ======== --> 
-        </section>
-        
-        <section class="container_map">
-            <h1>Localiser votre station la plus proche</h1>
-            <div class="carte" id="map"></div>
-        
-        </section>
-    </main>
-
-
-    
-<!-- =============== intégration des feuilles JS =============== -->
-<!-- <script src="js/Canvas.js"></script> -->
-<script src="js/Slider.js"></script>
-<script src="js/MyMap.js"></script>
-<script src="js/main.js"></script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBWsZ0qujcVy2dkWYAHPRS_aWHnIHZO7SU&callback=gMapCallBack"
-type="text/javascript"></script>
-</body>
-<!-- ===================== Fin Body ==================== -->
-<!-- ===================== Footer ==================== -->
-<footer> P3 | by Malamine Dieng |</footer>
 </html>
