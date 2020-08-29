@@ -4,13 +4,9 @@ document.addEventListener("DOMContentLoaded", function(event)
 /*================================== Slider =====================================*/
 
 //Récupération du conteneur
-let sliderElement = document.querySelector(".slider");
-
-// création de notre objet
-let my_slider_1 = new Slider (sliderElement);
-console.log(my_slider_1);
-
-
+// let sliderElement = document.querySelector(".slider");
+// // création de notre objet
+// let my_slider_1 = new Slider (sliderElement);
 });
 
 /*================================== Carte =====================================*/
@@ -18,21 +14,21 @@ console.log(my_slider_1);
 // Récupération du conteneur
 let mapElement = document.getElementById('map');
 
-//création des option de la carte
+//création des options de la carte
 let besançon = {lat : 47.237829, lng : 6.0240539};
 let mapOptions = {	
 	// location Besançon
 	center: besançon,
 	zoom: 14,
-	// // disableDefaultUI: true,
+	// disableDefaultUI: true,
 	// scrollwheel: true,
-	// // mapTypeId: google.maps.MapTypeId.HYBRID
+	// mapTypeId: google.maps.MapTypeId.HYBRID
 	// fullscreenControlOptions: {
 	// 	position: google.maps.ControlPosition.RIGHT_TOP
 	// }
 };
 
-// //CALLBACK chargement google map
+//CALLBACK chargement du google map
 function gMapCallBack() {
 
 	// creation de notre objet map
@@ -45,7 +41,6 @@ function gMapCallBack() {
 	let tableauStations = [];
 	// appel AJAX par GET
 	const xhr = new XMLHttpRequest();
-	console.log(this);
 	xhr.open('GET', 'https://api.jcdecaux.com/vls/v1/stations?contract=besancon&apiKey=a9894cabd522f540bdcb21976dbdd92b43a0a85a')
 
 	xhr.responseType = "json";
@@ -68,30 +63,66 @@ function gMapCallBack() {
 
 }
 
-//validation formulaire
-
 
 //bouton reserver
 let boutonReserver_elt = document.getElementById('boutonreserver');
 boutonReserver_elt.addEventListener('click', function(event){
 	event.preventDefault();
-	document.getElementById('canvas').style.display = 'block';
-	document.getElementById('controlCanvas').style.display = 'block';
+	let lastNameValue = document.forms["myForm"]["lastName"].value;
+	if(lastNameValue == '' ) {
+		console.log('remplir infos');
+		return false
+		
+	} else {
+		document.getElementById('canvas').style.display = 'block';
+		document.getElementById('controlCanvas').style.display = 'block';
+		
+	}
 	
 	
+
 });
+
+/*================================== Reservation =====================================*/
+//Récupération du reservation
+let reservationElement = document.getElementById('inforeservation');
+// console.log(timerElement);
+const my_reservation = new MyReservation();
 
 /*================================== Canava =====================================*/
 
 //Récupération du conteneur
 let canvasElement = document.getElementById('canvas');
-// console.log(canvasElement);
 // création de notre objet
-const my_canvas = new MyCanvas ();
-console.log(my_canvas);
+const my_canvas = new MyCanvas (MyReservation);
+// console.log(my_canvas);
+
+/*================================== Timer =====================================*/
+//Récupération du timer
+let timerElement = document.getElementById('reservation');
+// console.log(timerElement);
+const my_timer = new MyTimer();
+
+let date = new Date();
+// // console.log(date);
+// document.getElementById("demo").innerHTML = date;
 
 
 
+// function stockNomPrenom(){
+	
+// 	console.log('stockNomPrenom()');
+// 	let nom = document.getElementById('lastName').value;
+// 	let prenom = document.getElementById('firstName').value;
+	
+// 	localStorage.nom = nom
+// 	localStorage.prenom = prenom
+// }
 
+// function stockReservation(){
+// 	console.log('stockReservation');
+// 	let stationName = document.getElementById('station_name').innerText;
+	
 
-
+// 	sessionStorage.stationName = stationName
+// }

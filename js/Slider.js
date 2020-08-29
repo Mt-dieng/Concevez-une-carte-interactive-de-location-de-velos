@@ -34,7 +34,7 @@ class Slider{
 
         // Eventclick pour aller au slider precédent
         this.prev_elt.addEventListener('click', ()=>{
-            console.log('prev');
+            // console.log('prev');
             this.goToPrev();
         });
 
@@ -47,7 +47,7 @@ class Slider{
         
         // Eventclick pour pause
         this.pause_elt.addEventListener('click', ()=>{
-			console.log('Pause');
+			// console.log('Pause');
 			this.clearPlayInterval();	
         });
         
@@ -100,7 +100,7 @@ class Slider{
         //Play
         createPlayInterval () {
             this.playInterval = window.setInterval( ()=>{
-                console.log('Play');
+                // console.log('Play');
                 let indexSuiv=null;
                 if (this.index < this.totalItems-1){
                     indexSuiv = this.index + 1;
@@ -110,7 +110,7 @@ class Slider{
                 this.items[this.index].classList.remove('slide-active');
                 this.items[indexSuiv].classList.add('slide-active');
                 this.index = indexSuiv;
-            }, 1000)//(1000ms <=> 1s)
+            }, 1200)//(1000ms <=> 1s)
             
         }
 
