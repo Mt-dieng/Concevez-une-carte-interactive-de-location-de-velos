@@ -1,4 +1,4 @@
-//Déclaration de class map
+// création de la classe  map
 class MyMap{
     
     // Déclaration de notre constructor
@@ -38,7 +38,7 @@ class MyMap{
                 available_bikes : available_bikes
             });
 
-            // création de l'evenement click 
+            // création de l'evenement click- recupération de nos éléments html 
             let form_station_number_elt = document.getElementById('station_number');
             let form_station_name_elt = document.getElementById('station_name');
             let form_station_address_elt = document.getElementById('station_address');
@@ -52,10 +52,9 @@ class MyMap{
                 form_station_position_elt.innerHTML = 'lat : ' + position.lat + ', lng : ' + position.lng,
                 form_station_status_elt.innerHTML = status,
                 form_station_available_bikes_elt.innerHTML = available_bikes
-                
+                document.getElementById('station-info').style.display = 'block';
             });
            
-    
         }
     }
     

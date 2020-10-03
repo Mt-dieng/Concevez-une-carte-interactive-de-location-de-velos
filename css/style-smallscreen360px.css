@@ -1,0 +1,120 @@
+@media only screen and (max-width: 360px) {
+  
+  header {
+    box-sizing: border-box;
+    box-shadow: 0px 2px 4px 1px #221;
+  }
+
+  .inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+
+   /*main*/
+  main {
+    margin: 0 10px;
+  }
+  
+    
+  .logo {
+    padding: 2px 2px 0;
+  }
+
+    .logo img {
+      width: 80px;
+    }
+
+  ul {
+    display: none;
+  }
+
+    
+  .slider-container {
+    height: 250px;
+    position: relative;
+    width: 320px;
+    min-width: 310px;
+  }
+
+  .slider-container .slides-item .item {
+    width: 300px;
+    height: 220px;
+    padding: 13px 11px 10px 11px;
+  }
+
+  .slider-container .slides-item .item .caption {
+      display: none;
+  }
+  	
+  	/* .slider-container .slides-item .item img {
+      
+  } */
+
+  .playpause {
+    left: 40%; 
+  }
+
+  .container-map {
+    height: 600px;
+  }
+
+  #station-info {
+    border: 3px inset #000;
+    border-radius: 6px;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 10px;
+    margin-top: 10px;
+  }
+
+  #canvas {
+    background-color: #fdfbff;
+    border: 1px inset black;
+    box-shadow: 3px 3px 0 0 #80808040;
+    width: 300px;
+    height: 200px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    display: none;
+  }
+
+  #reservationDate {
+
+    width: 100%;
+    height: 82px;
+    line-height: 19px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    text-transform: lowercase;
+  }
+
+  /*footer*/
+  footer{
+    padding: 12px;
+    margin-top: 14px;
+  }
+  .footer-countainer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 9px;
+    background: #eae8e8;
+    line-height: 18px;
+    flex-direction: column;
+}
+  .left-col {
+    display: flex;
+    align-items: center;
+    position: relative;
+    flex-direction: column;
+    letter-spacing: 1px;
+    text-align: center;
+}
+}

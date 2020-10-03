@@ -1,0 +1,172 @@
+@media screen and (max-width: 768px) {
+    
+  header { 
+    width: 100%;
+    height: 89px;
+    min-width: 360px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .inner {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+  }
+
+  .logo {
+    padding: 4px 2px 0;
+    position: absolute;
+    cursor: pointer;
+  }
+
+    .logo img {
+      border-radius: 50%;
+      width: 80px;
+      margin: 20px;
+    }
+
+  ul {
+    display: none;
+  }
+
+
+  #presapp {
+    display: flex;
+    justify-content: center;
+  }
+
+/* section slider */
+/* ************** */
+
+  .slider-container {
+    height: 300px;
+    margin: auto;
+    animation-duration: 4s;
+    animation-name: slidcon;
+}
+
+@keyframes slidcon {
+from {
+  opacity: 0;
+  transform: translateY(-100px);
+}
+to {
+  opacity: 1;
+  transform: translateY(0px);
+}
+}
+
+  .slider-container .slides-item .item {
+    height: 270px;
+    padding: 20px 9px 20px 8px;
+  }
+
+  .slider-container .slides-item .item .caption {
+    display: flex;
+    justify-content: center;
+    bottom: 21px;
+    font-size: 14px;
+    color: #f1f1f1;
+    background: #151414ad;
+  }
+
+  .slider-container .slides-item .item img {
+    width: 100%;
+    height: 100%;
+  }
+
+  /* section map */  
+  .container-map {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .container-map .carte {
+    height: 550px;
+  }
+
+        /* Formulaire */
+ /* ************************** */
+  #station-info {
+    border: 3px inset #000;
+    border-radius: 6px;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 10px;
+    margin-top: 10px;
+  }
+
+/* canvas */
+  #canvas {
+    background-color: #fdfbff;
+    border: 1px inset black;
+    box-shadow: 3px 3px 0 0 #80808040;
+    width: 300px;
+    height: 200px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    display: none;
+  }
+
+/* Formulaire-infos_reservation */
+ /* ************************** */
+  #infosReservation {
+    position: absolute;
+    bottom: -190px;
+    text-align: center;
+    left: 0;
+    right: 0;
+    text-transform: uppercase;
+    border: #171717 1px dotted;
+    background: #505554;
+    border-radius: 10px;
+    height: 185px;
+  }
+
+  #reservationDate {
+    text-transform: uppercase;
+    background: transparent;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px dotted #000;
+    padding: 10px;
+    position: absolute;
+    bottom: -2px;
+    width: 100%;
+    height: 96px;
+    line-height: 24px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  /* Footer-screen */
+  /* ************ */
+  footer{
+    padding: 15px;
+    margin-top: 15px;
+    height: 190px;
+  }
+  .footer-countainer {
+    height: 100%;
+  }
+
+  .left-col {
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: center;
+    letter-spacing: 3px;
+    flex-wrap: wrap;
+  }
+  .left-col .text{
+    text-align: center;
+    letter-spacing: 1px;
+}
+}

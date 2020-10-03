@@ -10,19 +10,24 @@ html{
     padding: 10px 0px 0px 0px;
     margin: 0;
 }
-
+/* ********Body*********** */
+/* ************************* */
 body{
     font-family: 'roboto', serif;
     margin: 0;
+    
 }
 
+/* ********Header*********** */
+/* ************************* */
 header{
-    background: #1274a4de;
+    background: #434859;
     width: 100%;
-    height: 80px;
+    height: 90px;
     box-sizing: border-box;
     box-shadow: 0 5px #221;
 }
+
 .inner{
     display: flex;
     justify-content: space-around;
@@ -41,11 +46,21 @@ header{
     cursor: pointer;
 }
 .logo img{
-    height: 86px;
-    padding: 3px 10px;
-    width: 157px;
+    height: 78px;
+    padding: 4px 3px;
+    width: 90px;
+    border-radius: 50%;
+    animation: log-pulse 1.5s infinite;
+}
+/* ********animation-logo*********** */
+@keyframes log-pulse {
+    to {
+        box-shadow: 0 0 0 2px #ff8875b3;
+    }
 }
 
+/* ********Menu.hearde*********** */
+/* ************************* */
 ul{
     position: absolute;
     display: flex;
@@ -68,36 +83,73 @@ ul li a {
 }
 
 ul li a:hover{
-    background: ghostwhite;
-    color: black;
+    background: #ff8875;
+    color: #434859;
     border-radius: 50px;
 
 }
-
+/* ********Titre -page d'accueil*********** */
 h1{
     text-align: center;
+    color: #434859;
     margin: 10px;
+    animation-duration: 5s;
+    animation-name: titre-1; 
+}
+/* ********animation h1*********** */
+@keyframes titre-1 {
+    from {
+        opacity: 0;
+        transform: translateY(-100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0px);
+    }
 }
 
+/* **********Main********** */
+/* ************************* */
 main{
     width: 90%;
     margin: 10px auto;
     padding: 10px 10px;
 }
 
+h2{
+    text-align: center;
+    margin: 10px;
+}
+
+/* **********Section Slider********** */
+/* ********************************* */
+
 .slider-container {
+	position: relative;
     border: 2px solid #81848c;
-    height: 650px;
+    width: 100%;
+    height: 450px;
     overflow: hidden;
-    position: relative;
     border-radius: 4px;
     background: #fff;
     box-shadow: 2px 4px 7px #39363654;
-    width: 80%;
     margin: auto;
-    /* display: none; */
+    animation-duration: 0.5s;
+    animation-name: slidcon;
 }
 
+@keyframes slidcon {
+from {
+    opacity: 0;
+    transform: translateX(-100px);
+}
+to {
+    opacity: 1;
+    transform: translateX(0px);
+}
+}
+/* ********listes d'items*********** */
+/* ************************* */
 .slider-container .slides-item{
     display: flex;
     width: 100%;
@@ -106,35 +158,39 @@ main{
 
 .slider-container .slides-item .item{
     width: 100%;
-    height: 100%;
+    height: 400px;
     display: flex;
     justify-content: center;
     align-items: center;
     position: absolute;
     opacity: 0;
 }
+
 .slider-container .slides-item .slide-active{
     opacity: 1;
 }
+
 .slider-container .slides-item .item img{
     width: 100%;
     height: 100%;
 }
-
+/* *******Texte/presentation de notre Appl******** */
+/* ************************* */
 .slider-container .slides-item .item .caption{
     position: absolute;
-    bottom: 43px;
     margin:  0 auto;
     text-align: center;
     width: 100%;
     color: #fff;
     font-weight: bold;
-    padding: 25px 15px;
+    padding: 15px;
     font-size: 22px;
     background: #0000004d;
+    bottom: 15px;
 }
 
-
+/* ******Flêches de navigation********* */
+/* ************************* */
 #left, #rigth{
     width: 50px;
     background: #00000036;
@@ -146,7 +202,6 @@ main{
     transform: translateY(-50%);
     border-radius: 50%;
     height:50px;
-
 }
 
 #rigth{
@@ -174,23 +229,27 @@ main{
     cursor: pointer;
     color: #3186b0;
 }
-
+/* ******Boutons play_pause********* */
+/* ************************* */
 .playpause{
     position: absolute;
-    bottom: 5px;
+    bottom: 2px;
     left: 50%;
-    padding: 5px 10px;
-    background: #fff; 
+    padding: 0px 10px;
+    color: #434859;
 }
 
 #play:hover, #pause:hover{
     cursor: pointer;
-    color: #3186b0;
+    color: #ff8875;
 }
 
-/* ***********map_station*********** */
+/* **********Section Station********** */
+/* ********************************* */
+
 .section_map_station{
     padding-top: 2em;
+    position: relative;
 }
 
 .container-map{
@@ -198,70 +257,83 @@ main{
 }
 .container-map .carte{
     width: 100%;
-    height: 560px;
+    height: 596px;
     border: #221;
     padding: 30px;
 }
 
-/* information sur nos station */
-.station-info{
+/* ***information sur nos station*** */
+#station-info{
     border: 3px inset #000;
     border-radius: 6px;
     width: 350px;
     height: auto;
     margin: 0 6px;
     text-align: center;
+    display: none;
 }
 
-/* notre formulaire */
+/* *****notre formulaire***** */
+/* ************************* */
+
 form{
     margin: 7px 7px 0px 7px;
     text-align: center;
     line-height: 24px;
 }
+
 label{
     font-weight: bold;
-    color: rebeccapurple;
+    color: #354552;
 }
 
 form input[type="text"] {
     text-align: center;
-    padding: 10px;
-    border: solid black 1px;
+    padding: 15px 30px;
+    border: none;
+    background-color: #d2caca;
+    font-size: 16px;
+    color: #293043;
+    font-weight: 500;
+    border-radius: 30px;
+    min-width: 260px;
+    outline: none;
 }
-form #boutonreserver{
-    box-shadow: 3px 4px 3px 0px #5184b9;
-    background: linear-gradient(to bottom, rebeccapurple 5%, rebeccapurple 100%);
-    background-color: rgba(0, 0, 0, 0);
-    background-color: rebeccapurple;
-    border-radius: 14px;
-    border: 1px solid rebeccapurple;
+/* bouton formulaire */
+form #btnreserve{
+    background-color: #ff8875;
     display: inline-block;
     cursor: pointer;
-    color: #ffffff;
     font-family: 'roboto';
     font-size: 17px;
-    padding: 10px 20px;
     text-decoration: none;
-    text-shadow: -2px 0px 0px rebeccapurple;
     margin: 8px 3px 8px 3px;
-}
-form #boutonreserver:hover {
-	background:linear-gradient(to bottom, #f24437 5%, #c62d1f 100%);
-	background-color:#f24437;
+    display: inline-block;
+    text-transform: none;
+    border-radius: 20px;
+    line-height: 2.4;
+    padding: 0 2.8em;
+    transition: all 0.3s;
+    box-shadow: 6px 6px 12px #c9c9c9, -6px -6px 12px #fff;
 }
 
+form #btnreserve:hover {
+	color: #ff8875;
+	background-color:#f1f1f1;
+}
 
-/* canvas */
+/* ************canvas************* */
+/* ****************************** */
 #canvas{
     background-color: #fdfbff;
     border: 1px inset black;
     box-shadow: 3px 3px 0 0 #80808040;
-    width: 400px;
+    width: 300px;
     height: 200px;
     margin-top: 10px;
     margin-left: auto;
     margin-right: auto;
+    cursor: pointer;
     display: none;
 }
 
@@ -271,53 +343,139 @@ form #boutonreserver:hover {
     text-align: center;
 }
 
-#clearCanvas{
-        box-shadow: 3px 4px 0px 0px #1564ad;
-        background:linear-gradient(to bottom, #79bbff 5%, #378de5 100%);
-        background-color:#79bbff;
-        border-radius:5px;
-        border:1px solid #337bc4;
-        display:inline-block;
-        cursor:pointer;
-        color:#ffffff;
-        font-family:Arial;
-        font-size:17px;
-        font-weight:bold;
-        padding:10px 30px;
-        text-decoration:none;
-        text-shadow:0px 1px 0px #528ecc;
-    }
-    .clearCanvas:hover {
-        background:linear-gradient(to bottom, #378de5 5%, #79bbff 100%);
-        background-color:#378de5;
-    }
-    .clearCanvas:active {
-        position:relative;
-        top:1px;
-    }
+/* ************bouton canvas************* */
+#clearCanvas, #validCanvas{
+    background-color: #ff8875;
+    cursor: pointer;
+    font-family: 'roboto';
+    font-size: 15px;
+    text-decoration: none;
+    margin: 8px 3px 8px 3px;
+    display: inline-block;
+    text-transform: none;
+    border-radius: 20px 0;
+    line-height: 2.4;
+    padding: 0 2.8em;
+    transition: all 0.3s;
+    box-shadow: 6px 6px 12px #c9c9c9, -6px -6px 12px #fff;
     
-    #validCanvas{
-        box-shadow: 3px 4px 0px 0px #1564ad;
-        background:linear-gradient(to bottom, #79bbff 5%, #378de5 100%);
-        background-color:#79bbff;
-        border-radius:5px;
-        border:1px solid #337bc4;
-        display:inline-block;
-        cursor:pointer;
-        color:#ffffff;
-        font-family:Arial;
-        font-size:17px;
-        font-weight:bold;
-        padding:10px 30px;
-        text-decoration:none;
-        text-shadow:0px 1px 0px #528ecc;
+}
+    #clearCanvas:hover, #validCanvas:hover {
+        color:#ff8875;
+        background-color:#f1f1f1;
     }
-    #validCanvas:hover {
-        background:linear-gradient(to bottom, #378de5 5%, #79bbff 100%);
-        background-color:#378de5;
-    }
-    #validCanvas:active {
-        position:relative;
-        top:1px;
-    }
+   
 
+/* ************infosreservation-timer************* */
+#infosReservation{
+    position: absolute;
+    bottom: -31%;
+    text-align: center;
+    left: 0;
+    right: 0;
+    text-transform: uppercase;
+    border: #171717 1px dotted;
+    background: #505554;
+    border-radius: 10px;
+    height: 30%;
+    display: none;
+}
+
+#reservation{
+    text-align: center;
+    text-transform: initial;
+    background: #ff8875;
+    border-radius: 9px;
+    height: 49px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    padding: 10px;
+    color: #403838;
+    font-weight: bold;
+}
+
+#reservationDate {
+    text-transform: uppercase;
+    background: transparent;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px dotted #000;
+    padding: 10px;
+    position: absolute;
+    bottom: -2px;
+    width: 100%;
+    height: 37px;
+    line-height: 9px;
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+}
+
+#canceledreservation{
+    height: 30px;
+    width: 84px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 6px;
+    background-color: #e65151b8;
+    color: cornsilk;
+    font-weight: bolder;
+    font-family: roboto;
+}
+#canceledreservation:hover{
+    border-radius: 5px;
+    background: linear-gradient(45deg, #2bbda9, #7c95a2, #f1f7f6, #5bb5ac );
+    color: #3c3e3d;
+}
+
+
+
+/* ************footer************* */
+footer{
+    padding: 24px;
+    margin-top:180px;
+    position: relative;
+    max-width: 1024px;
+}
+
+.footer-countainer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 21px 4px 4px 37px;
+    background: #eae8e8;
+    line-height: 18px;
+}
+
+.left-col{
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: space-around;
+    letter-spacing: 3px;
+}
+.photo-ide-footer{
+    width: 60px;
+    height: auto;
+    border: 2px solid darkkhaki;
+    cursor: pointer;
+    border-radius: 50%;
+}
+.social-media{
+    margin:20px 0;
+}
+
+.social-media a{
+    color: #2f2e2d;
+    margin-right: 25px;
+    font-size: 20px;
+    text-decoration: none;
+    transition: .3s linear;
+}
+
+.social-media a:hover{
+    color: #c86916;
+}

@@ -1,5 +1,4 @@
-
-//Déclaration de class (Slider)
+// création de la classe Slider
 class Slider{
 
 	/* ***définit notre constructor*** */
@@ -40,7 +39,7 @@ class Slider{
 
         // Eventclick pour play
 		this.play_elt.addEventListener('click', ()=>{
-			console.log('Play');
+			// console.log('Play');
             this.clearPlayInterval();
             this.createPlayInterval();
         });
@@ -64,12 +63,11 @@ class Slider{
         });
 
         // Lancement autoplay
-        this.createPlayInterval();
-        
+        this.createPlayInterval();  
     }
     /* ***fin du constructor*** */
 
-        // Fonctions..
+    /* ******Fonctions******** */
 
         //Pour aller au slide suivant
         goToNext () {
@@ -100,7 +98,6 @@ class Slider{
         //Play
         createPlayInterval () {
             this.playInterval = window.setInterval( ()=>{
-                // console.log('Play');
                 let indexSuiv=null;
                 if (this.index < this.totalItems-1){
                     indexSuiv = this.index + 1;
@@ -110,7 +107,7 @@ class Slider{
                 this.items[this.index].classList.remove('slide-active');
                 this.items[indexSuiv].classList.add('slide-active');
                 this.index = indexSuiv;
-            }, 1200)//(1000ms <=> 1s)
+            }, 5000)//(1000ms <=> 1s)
             
         }
 
