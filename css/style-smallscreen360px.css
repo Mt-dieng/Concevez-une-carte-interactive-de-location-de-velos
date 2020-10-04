@@ -53,22 +53,12 @@
   } */
 
   .playpause {
-    left: 40%; 
+    display: none;
+
   }
 
   .container-map {
-    height: 600px;
-  }
-
-  #station-info {
-    border: 3px inset #000;
-    border-radius: 6px;
-    width: 100%;
-    height: auto;
-    margin: 0 auto;
-    text-align: center;
-    padding-top: 10px;
-    margin-top: 10px;
+    height: 500px;
   }
 
   #canvas {
@@ -83,22 +73,40 @@
     display: none;
   }
 
-  #reservationDate {
-
+  /* ***information sur nos station*** */
+  #station-info {
+    border: 3px inset #000;
+    border-radius: 6px;
     width: 100%;
-    height: 82px;
-    line-height: 19px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-direction: column;
-    text-transform: lowercase;
+    height: auto;
+    padding-top: 10px;
+    margin-top: 10px;
+  }
+  
+  form #btnreserve {
+    line-height: 2.4;
+    padding: 0 0.8em;
+  }
+
+  #infosReservation {
+    bottom: -69em;
+  }
+
+  #reservation {
+    font-size: 16px;
+    padding: 4px;
+  }
+
+  #reservationDate {
+    line-height: 20px;
+    text-align: center;
   }
 
   /*footer*/
   footer{
     padding: 12px;
-    margin-top: 14px;
+    margin-top: 160px;
+    bottom: -58em;
   }
   .footer-countainer {
     display: flex;
@@ -108,7 +116,7 @@
     background: #eae8e8;
     line-height: 18px;
     flex-direction: column;
-}
+  }
   .left-col {
     display: flex;
     align-items: center;
@@ -116,5 +124,5 @@
     flex-direction: column;
     letter-spacing: 1px;
     text-align: center;
-}
+  }
 }
