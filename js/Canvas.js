@@ -19,7 +19,7 @@ class Canvas{
         });
 
         this.validCanvas.addEventListener('click', (event) =>{
-           //si le canvas est blank
+           //si le canvas est blank?
             let pixelBuffer = new Uint32Array(
                 this.ctx.getImageData(0, 0, this.canvas.width, this.canvas.height).data.buffer
             );
@@ -29,8 +29,7 @@ class Canvas{
             } else{
                     this.save();
                     document.getElementById('infosReservation').style.display = 'block';
-            }
-              
+            }   
         });
     }
 

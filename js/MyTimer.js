@@ -1,7 +1,7 @@
 // création de la classe Timer
 class MyTimer {
 
-  constructor(startMinutes, startSeconds, Reservation) {
+  constructor(startMinutes, startSeconds,) {
     this.countDown = timerElement;
     this.startMinutes = startMinutes;
     this.startSeconds =  startSeconds;
@@ -17,8 +17,6 @@ class MyTimer {
     this.interval = setInterval(() => {
       this.updateCountDown();
     }, 1000);
-    sessionStorage.setItem('time',this.interval);
-    // console.log;
   }
 
   updateCountDown() {

@@ -24,12 +24,11 @@ let mapOptions = {
 	// location Besançon
 	center: besançon,
 	zoom: 14,
+	
 	// disableDefaultUI: true,
 	// scrollwheel: true
 	// mapTypeId: google.maps.MapTypeId.HYBRID
-	// fullscreenControlOptions: {
-	// 	position: google.maps.ControlPosition.RIGHT_TOP
-	// }
+
 };
 
 //
@@ -114,15 +113,6 @@ stopCount.addEventListener('click', (event) => {
 
 });
 
-const my_timer_2 = new MyTimer();
-// startCount.addEventListener('click', (event) => {
-// 	my_timer_2.startTimer()
-	
-//   });
-// stopCount.addEventListener('click', (event) => {
-//   	my_timer_2.stopTimer()
-
-// });
 /*================================= Reservation =================================*/
 /*==============================================================================*/
 
@@ -133,12 +123,3 @@ const my_reservation = new Reservation();
 
 /* on appelle notre methode pour verifier l'existence d'une reservation */
 my_reservation.isValidReservation();
-
-
-
-
-
-
-
-
-
