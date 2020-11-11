@@ -29,6 +29,7 @@ class Canvas{
             } else{
                     this.save();
                     document.getElementById('infosReservation').style.display = 'block';
+                    // document.getElementById('bike-wrapper').style.display = 'block';
             }   
         });
     }
@@ -78,7 +79,6 @@ class Canvas{
         })
 
         this.canvas.addEventListener('touchmove', (event) => {
-            // console.log('dessiner');
             event.preventDefault();
 
             if (!this.drawing) {

@@ -32,7 +32,6 @@ class Reservation {
         });
 
     }
-
     //format de la date
     DateFormat(date){
         let hours = date.getHours();
@@ -47,31 +46,32 @@ class Reservation {
     /* Vérification de la validité d'une reservation = 
     une reservation existe en stockage + la reservation n'est pas expirée */
     isValidReservation(){
-        //est ce qu'une reservation existe en stockage
+        /* ****(1) est ce qu'une reservation existe en stockage ?**** */
+
         if(sessionStorage.stationName){
-            // la reservation n'est pas expirée ?
+            /* ****si (1) = true on calcule de la différence de la durée 
+            entre l'heure de la reservation et l'heure actuelle****** */
             let reservationDate = sessionStorage.reservationDate_elt
             let dateNow = Date.now();
-            //calcule de la différence 
             let difference = dateNow - reservationDate 
             //on convertie nos temps (ms) en minutes et secondes
             let minute = Math.floor((difference / 1000) / 60)
             let seconds = ((difference % 60000) / 1000).toFixed(0) *1
             // console.log(minute, seconds)
 
-            //on verifie si la reservation n'est pas expirée?
+            //(2) on verifie si la reservation n'est pas expirée
             if (minute < 20){
                 let minuteRemaining = 19 - minute
                 let secondsRemaining = 60 - seconds
-                secondsRemaining = secondsRemaining < 10 ? '0' + secondsRemaining : secondsRemaining;
                 this.intervalId = setInterval(() => {
                     secondsRemaining--
                     if(minuteRemaining === 0 && secondsRemaining === 0){
-                        this.isExpired_elt.innerHTML =  ` votre reservation est expiré veillez, reservé de nouveau`;
+                        // this.isExpired_elt.innerHTML =  ` votre reservation est expirée veillez, reservé de nouveau`;
                         // on affiche les infos de la reservation
                         document.getElementById('infosReservation').style.display = 'block';
                         document.getElementById('reservationDate').style.display = 'none';
                         clearInterval(this.intervalId)
+                        sessionStorage.clear()
                         return
                     }
                     if(secondsRemaining < 0){
@@ -80,25 +80,23 @@ class Reservation {
                     }
                     //on affiche le temps restant
                     this.isExpired_elt.innerHTML =  ` un vélo est reservé pour : ${minuteRemaining} min : ${secondsRemaining} s`;
-                    this.nameClient_elt.innerHTML = `un vélo est reservé à la station : ${sessionStorage.stationName} pour :${localStorage.nom}  ${localStorage.prenom}`;
-                       
-                    //on affiche les informations et temps restant
+                    this.nameClient_elt.innerHTML = `un vélo est reservé  à la station : ${sessionStorage.stationName} pour : ${localStorage.nom}  ${localStorage.prenom}`;  
+                    //on affiche les informations
                     document.getElementById('infosReservation').style.display = 'block';
                     document.getElementById('reservationDate').style.display = 'block';
                 }, 1000);
                 
-            //la reservation est expirée
+            //si (2)!= true la reservation est expirée
             } else {
-                // // console.log('expired');  
-                // this.isExpired_elt.innerHTML = ` votre reservation est expiré veillez, reservé de nouveau`;
-                // document.getElementById('infosReservation').style.display = 'block';
-                // document.getElementById('reservationDate').style.display = 'none';
+                clearInterval(this.intervalId)
                 sessionStorage.clear()
+                this.isExpired_elt.innerHTML = ` votre reservation est expiré, veillez reservé de nouveau`;
+                document.getElementById('infosReservation').style.display = 'block';
+                document.getElementById('reservationDate').style.display = 'none';
                 }        
         }        
     }  
-
-   
+ 
     //LocalStorage
     stockNameClient (event) {
         let nom = document.getElementById('lastName').value;
@@ -123,4 +121,3 @@ class Reservation {
         
     }
 }
-

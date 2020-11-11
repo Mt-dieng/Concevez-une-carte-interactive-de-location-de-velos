@@ -114,7 +114,7 @@ class Slider{
         //Pause
         clearPlayInterval () {
         window.clearInterval(this.playInterval);
-        console.log('STOP');
+        // console.log('STOP');
         
         }
 

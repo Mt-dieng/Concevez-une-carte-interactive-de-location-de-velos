@@ -110,6 +110,7 @@ startCount.addEventListener('click', (event) => {
   });
 stopCount.addEventListener('click', (event) => {
   	my_timer.stopTimer()
+    my_canvas.clear()
 
 });
 

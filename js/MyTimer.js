@@ -41,7 +41,6 @@ class MyTimer {
     clearInterval(this.interval);
     this.countDown.innerHTML = `votre réservation est annulée`;
     // console.log('finish');
-    
   }
 
   
