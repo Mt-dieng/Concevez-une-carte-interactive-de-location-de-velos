@@ -59,18 +59,17 @@
 
   .container-map {
     height: 500px;
+    width: 305px;
+  }
+  .container-map .carte {
+    height: 500px;
   }
 
   #canvas {
-    background-color: #fdfbff;
-    border: 1px inset black;
-    box-shadow: 3px 3px 0 0 #80808040;
-    width: 300px;
-    height: 200px;
-    margin-top: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    display: none;
+    display: block;
+  }
+  #controlCanvas{
+    display: block;
   }
 
   /* ***information sur nos station*** */
@@ -81,6 +80,7 @@
     height: auto;
     padding-top: 10px;
     margin-top: 10px;
+    display: block;
   }
   
   form #btnreserve {
@@ -89,7 +89,8 @@
   }
 
   #infosReservation {
-    bottom: -69em;
+    display: block;
+    bottom: -62em;
   }
 
   #reservation {
@@ -97,16 +98,18 @@
     padding: 4px;
   }
 
+
   #reservationDate {
-    line-height: 20px;
-    text-align: center;
+    line-height: 30px;
+    color:#f0d0d0;
+    font-weight: bold;
   }
 
   /*footer*/
   footer{
     padding: 12px;
     margin-top: 160px;
-    bottom: -58em;
+    bottom: -52em;
   }
   .footer-countainer {
     display: flex;

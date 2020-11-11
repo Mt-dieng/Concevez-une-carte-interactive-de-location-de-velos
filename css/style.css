@@ -10,6 +10,7 @@ html{
     padding: 10px 0px 0px 0px;
     margin: 0;
 }
+
 /* ********Body*********** */
 /* ************************* */
 body{
@@ -52,6 +53,7 @@ header{
     border-radius: 50%;
     animation: log-pulse 1.5s infinite;
 }
+
 /* ********animation-logo*********** */
 @keyframes log-pulse {
     to {
@@ -88,6 +90,7 @@ ul li a:hover{
     border-radius: 50px;
 
 }
+
 /* ********Titre -page d'accueil*********** */
 h1{
     text-align: center;
@@ -96,6 +99,7 @@ h1{
     animation-duration: 5s;
     animation-name: titre-1; 
 }
+
 /* ********animation h1*********** */
 @keyframes titre-1 {
     from {
@@ -134,6 +138,7 @@ h2{
     background: #fff;
     box-shadow: 2px 4px 7px #39363654;
     margin: auto;
+    max-width: 1200px;
     animation-duration: 0.5s;
     animation-name: slidcon;
 }
@@ -148,6 +153,7 @@ to {
     transform: translateX(0px);
 }
 }
+
 /* ********listes d'items*********** */
 /* ************************* */
 .slider-container .slides-item{
@@ -174,6 +180,7 @@ to {
     width: 100%;
     height: 100%;
 }
+
 /* *******Texte/presentation de notre Appl******** */
 /* ************************* */
 .slider-container .slides-item .item .caption{
@@ -229,6 +236,7 @@ to {
     cursor: pointer;
     color: #3186b0;
 }
+
 /* ******Boutons play_pause********* */
 /* ************************* */
 .playpause{
@@ -255,6 +263,7 @@ to {
 .container-map{
     display: flex;
 }
+
 .container-map .carte{
     width: 100%;
     height: 596px;
@@ -299,6 +308,7 @@ form input[type="text"] {
     min-width: 260px;
     outline: none;
 }
+
 /* bouton formulaire */
 form #btnreserve{
     background-color: #ff8875;
@@ -431,14 +441,11 @@ form #btnreserve:hover {
     color: #3c3e3d;
 }
 
-
-
 /* ************footer************* */
 footer{
-    padding: 24px;
+    padding: 28px;
     margin-top:180px;
     position: relative;
-    max-width: 1024px;
 }
 
 .footer-countainer{
